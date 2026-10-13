@@ -54,7 +54,7 @@ h3 { font-size: 21px; line-height: 1.3; }
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
   font: 600 15px/1 var(--sans); text-decoration: none;
-  padding: 15px 24px; border-radius: 999px;
+  padding: 15px 24px; border-radius: 999px; white-space: nowrap;
   transition: background .15s, color .15s, border-color .15s, transform .15s;
 }
 .btn svg { width: 18px; height: 18px; transition: transform .15s; }
@@ -89,7 +89,8 @@ h3 { font-size: 21px; line-height: 1.3; }
 
 /* Hero */
 .hero { padding: 72px 0 88px; }
-.hero-grid > div { max-width: 820px; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: end; }
+.hero-side { padding-bottom: 14px; border-left: 1px solid var(--rule); padding-left: 36px; }
 .division-pill {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 13px; font-weight: 500; color: var(--emerald-dark);
@@ -100,10 +101,10 @@ h3 { font-size: 21px; line-height: 1.3; }
 .division-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--emerald); }
 .hero h1 {
   font-size: clamp(42px, 6vw, 68px); line-height: 1.03; letter-spacing: -0.025em;
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 .hero h1 em { font-style: italic; color: var(--emerald); }
-.hero .lede { margin-bottom: 36px; }
+.hero .lede { margin-bottom: 32px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
 
@@ -248,6 +249,8 @@ section { scroll-margin-top: 80px; }
 
 /* Responsive */
 @media (max-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+  .hero-side { border-left: 0; padding: 0; }
   .faq-grid { grid-template-columns: 1fr; gap: 40px; }
   .outcomes { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: 1fr; }
